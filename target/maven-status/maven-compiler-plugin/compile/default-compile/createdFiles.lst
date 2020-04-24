@@ -1,0 +1,10 @@
+org\cenicafe\repository\WebServicesImpl.class
+org\cenicafe\repository\WebServicesImpl$1.class
+org\cenicafe\repository\IWebServices.class
+org\cenicafe\model\Empleado.class
+org\cenicafe\model\Iniciativa.class
+org\cenicafe\controller\IniciativasPortletController.class
+org\cenicafe\config\SpringConfiguration.class
+org\cenicafe\model\Pregunta.class
+org\cenicafe\config\ViewScope.class
+org\cenicafe\config\ViewScopeFactoryPostProcessor.class

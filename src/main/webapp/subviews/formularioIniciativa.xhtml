@@ -1,0 +1,94 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	>
+
+	<f:subview xmlns:ui="http://java.sun.com/jsf/facelets">
+		<h:form>
+		
+			<h:panelGrid>
+				<div class="titulo3">
+					Nueva iniciativa
+				</div>
+			 </h:panelGrid>
+			 
+			<p:outputLabel value=" Para adicionar una iniciativa, debe diligenciar todos los campos que encuentra a continuación:"
+							styleClass="texto-ingresar"/>
+			
+			<h:panelGrid id="h-pg-form-iniciativas">
+			
+				<p:panelGrid id="p-pg-datos-basicos-iniciativa" columns="3">
+					
+					<p:outputLabel value="Programa *:"/>
+					<p:selectOneMenu id="programa" value="#{iniciativasPortletController.nuevaIniciativa.programa}">
+	            		<f:selectItem itemLabel="Seleccione el programa : " itemValue="" />
+	            		<f:selectItems value="#{iniciativasPortletController.lstProgramas}" />
+					</p:selectOneMenu>
+				</p:panelGrid>
+				
+				<h:panelGrid>
+					
+					<p:outputLabel value="Subprograma *:" />
+					<p:selectOneMenu id="subPrograma" value="#{iniciativasPortletController.nuevaIniciativa.subPrograma}">
+	            		<f:selectItem itemLabel="Seleccione el sub programa : " itemValue="" />
+	            		<f:selectItems value="#{iniciativasPortletController.lstSubProgramas}" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="Aliniamiento estratégico *:"/>
+					<p:selectOneMenu id="ejeEstrategico" value="#{iniciativasPortletController.nuevaIniciativa.ejeEstrategico}">
+	            		<f:selectItem itemLabel="Seleccione el aliniamiento estratégico : " itemValue="" />
+	            		<f:selectItems value="#{iniciativasPortletController.lstEjeEstrategico}" />
+					</p:selectOneMenu>
+				
+					<p:outputLabel value="Titulo de la iniciativa *:" />
+					<p:inputTextarea rows="2" cols="30" counter="display" maxlength="50" counterTemplate="{0} Caracteres restantes." autoResize="false"
+									value="#{iniciativasPortletController.nuevaIniciativa.tituloIniciativa}" />
+					<h:outputText id="display" />
+					
+					<p:outputLabel value="* Campos obligatorios"/>
+				</h:panelGrid>
+	       
+	      
+	        	<h:panelGrid id="h-pg-preguntas-iniciativas">
+					<c:forEach var="preguntas" items="#{iniciativasPortletController.lstPreguntas}">  
+						<c:if test="#{preguntas.tiporespuesta eq 'TEXTO'}" >
+							<p:outputLabel value="#{preguntas.nroPregunta}" />
+							<p:outputLabel value="#{preguntas.pregunta}"/>
+							<p:outputLabel value="#{preguntas.tiporespuesta}"/>
+							<p:inputTextarea value="#{preguntas.respuesta}" rows="10" styleClass="respuestas"/>
+						</c:if>
+						<c:if test="#{preguntas.tiporespuesta eq 'SELECCION'}">
+							<h:panelGrid> 
+								<p:outputLabel value="#{preguntas.nroPregunta}" />
+								<p:outputLabel value="#{preguntas.pregunta}"/>
+								<p:selectOneMenu id="opciones" value="#{preguntas.respuesta}">
+          								<f:selectItem itemLabel="Seleccione una opcion: " itemValue="" />
+          								<f:selectItems value="#{preguntas.opciones}" />
+     									</p:selectOneMenu>
+							</h:panelGrid>
+						</c:if>
+						<c:if test="#{preguntas.tiporespuesta eq 'SINO'}">
+							<h:panelGrid> 
+								<p:outputLabel value="#{preguntas.nroPregunta}" />
+								<p:outputLabel value="#{preguntas.pregunta}"/>
+								<p:selectOneMenu id="opciones" value="#{preguntas.respuesta}">
+          								<f:selectItem itemLabel="Seleccione una opcion: " itemValue="" />
+          								<f:selectItems value="#{preguntas.opciones}" />
+     									</p:selectOneMenu>
+							</h:panelGrid>
+						</c:if>
+					</c:forEach>
+				</h:panelGrid>
+	        	<p:commandButton value="Guardar formulario" actionListener="#{iniciativasPortletController.validarIniciativas}" 
+									update="#{p:component('h-pg-inicio')}"/>
+									
+				<p:commandButton value="Volver" actionListener="#{iniciativasPortletController.cargarInicial}" 
+									update="#{p:component('h-pg-inicio')}"/>
+			</h:panelGrid>
+		</h:form>		
+	</f:subview>
+</ui:composition>
+	

@@ -1,0 +1,69 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<f:subview xmlns:ui="http://java.sun.com/jsf/facelets">
+		<h:form id="h-form-mostrar-iniciativas">
+			
+			
+			<p:dialog id="p-d-detalle-prestamo-pendiente"  widgetVar="dlg1" closeOnEscape="true" modal="true"
+					width="50%" resizable="false" responsive="true" onHide="PF('dlg1').hide()" minimizable="true" maximizable="true">
+					
+					<ui:repeat id="ui-rep-mostrar-preguntas-iniciativas" var="preguntas"
+							value="#{iniciativasPortletController.iniciativaSeleccionada.preguntasIniciativa}" varStatus="varStatus">
+								
+						<p:outputLabel value="#{preguntas.respuesta}" styleClass="respuestas"/>
+						<p:outputLabel value="#{preguntas.nroPregunta}" styleClass="espacio-preguntas" />
+						
+				</ui:repeat>
+			</p:dialog>
+			
+			<h:panelGrid id="h-pg-mostrar-iniciativas">
+				<p:dataTable id="p-dt-mostrar-iniciativa" value="#{iniciativasPortletController.lstInicitivas}"
+							var="iniciativa" emptyMessage="No hay información dísponible"
+							paginatorTemplate="{CurrentPageReport} {PageLinks}" paginator="true" rows="10" 
+							rowKey="#{iniciativa.idIniciativa}" paginatorPosition="bottom" reflow="true" 
+							styleClass="datatable-style-1">
+							
+					<p:columnGroup type="header">
+						<p:row styleClass="encabezado-verde">
+							<p:column colspan="6" headerText="Iniciativas vigentes"/>
+						</p:row>
+						<p:row styleClass="encabezado-gris">
+					        <p:column headerText="Número" />
+					        <p:column headerText="Alineamiento estratégico" />
+					        <p:column headerText="Titulo de la iniciativa" />
+					        <p:column headerText="Fecha de creación" />
+					        <p:column headerText="Estado"/>
+					        <p:column headerText="Preguntas" />
+						</p:row>
+					</p:columnGroup>
+							
+					<p:column headerText="Número" >
+						<h:outputText value="#{iniciativa.idIniciativa}" />
+					</p:column>
+					<p:column headerText="Alineamiento estratégico">
+						<h:outputText value="#{iniciativa.ejeEstrategico}" />
+					</p:column>
+					<p:column headerText="Titulo de la iniciativa">
+						<h:outputText value="#{iniciativa.tituloIniciativa}" />
+					</p:column>
+					<p:column headerText="Fecha de creación">
+						<h:outputText value="#{iniciativa.fechaCreacion}" />
+					</p:column>
+					<p:column headerText="Estado">
+						<h:outputText value="#{iniciativa.estado}" />
+					</p:column>
+					<p:column headerText="Ver">
+						<p:commandLink value="Ver" update="#{p:component('h-form-mostrar-iniciativas')}" oncomplete="PF('dlg1').show()"> 
+               				<f:setPropertyActionListener value="#{iniciativa}" target="#{iniciativasPortletController.iniciativaSeleccionada}" />
+           				</p:commandLink>
+					</p:column>
+				</p:dataTable>
+			</h:panelGrid>
+		</h:form>
+	</f:subview>
+</ui:composition>
+	

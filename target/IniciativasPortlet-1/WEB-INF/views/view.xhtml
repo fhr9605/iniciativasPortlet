@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<f:view
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+	<h:head>
+		<h:outputStylesheet library="css" name="main.css" />
+	</h:head>
+	<h:body>
+		<h:panelGrid id="h-pg-inicio" width="100%" > 
+		
+			<div class="titulo1">
+				Iniciativas
+			</div>
+			<div class="titulo2">
+				Adicionar iniciativa 
+			</div>
+			
+			<p:separator styleClass="separador" rendered="#{iniciativasPortletController.botonAgregarIniciativa}"/>
+			
+			<h:form id="h-form-inicio">
+				<p:commandButton value="Adicionar iniciativa" update="#{p:component('h-pg-inicio')}" rendered="#{iniciativasPortletController.botonAgregarIniciativa}"
+								actionListener="#{iniciativasPortletController.cargarFormularioIniciativas}" />
+				
+				<h:panelGrid id="h-pg-msj">
+	       			<f:facet name="header">
+ 						<p:messages id="msgs-form-general" closable="true"/>
+					</f:facet>
+				</h:panelGrid>
+			</h:form>
+			
+			<h:panelGrid id="h-pg-mostrarIniciativas" rendered="#{iniciativasPortletController.mostrarIniciativas}">
+				<ui:include id="mostrarIniciativas" src="/subviews/mostrarIniciativas.xhtml"/>
+			</h:panelGrid>
+			
+			<h:panelGrid id="h-pg-formulario-iniciativa" rendered="#{iniciativasPortletController.mostrarFormularioIniciativas}">
+			   	<ui:include id ="adicionarIniciativa" src="/subviews/formularioIniciativa.xhtml"/>
+			</h:panelGrid>
+		</h:panelGrid>
+	</h:body>
+</f:view>

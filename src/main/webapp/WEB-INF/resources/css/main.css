@@ -1,0 +1,176 @@
+/*TITULOS*/
+
+.titulo1{
+	font-family: Tw Cen Mt;
+	font-size: 2em;
+	color: #FAFAFA;
+	background: #007d45;
+	width: 100% !important;
+	padding-left: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.2em;
+    border-bottom: solid;
+	border-bottom-width: 1px;
+}
+
+.titulo2{
+	font-family: Tw Cen Mt;
+	font-size: 1.5em;
+	color: #FAFAFA;
+	background: #3FAC7B;
+	width: 100% !important;
+	padding-left: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.2em;
+    -webkit-border-radius: 0px 0px 0px 13px;
+}
+
+.titulo3{
+	font-family: Tw Cen Mt;
+	font-size: 2em;
+	color: #000000;
+	background: #ffffff;
+	width: 100% !important;
+	padding-left: 1em;
+	font-weight:bold;
+}
+
+.texto-ingresar{
+	padding-left: 2em;
+}
+
+/*SEPARADOR*/
+
+.separador{
+	border-color: white;
+}
+
+/*FUENTES*/
+
+.ui-datatable-tablewrapper {
+    overflow: unset !important;
+    font-family: tw cen mt !important;
+}
+
+.ui-datatable tr.ui-state-highlight{
+	text-shadow: none !important;
+}
+
+.ui-widget-content{
+	font-family: roboto !important;
+	font-size: medium !important;
+ 	color: #004f2c !important;
+	border: none !important;
+}
+
+
+/*CODIGO DE DATA-TABLE SIN SORT*/
+
+.ui-datatable.datatable-style-1 .ui-datatable-tablewrapper{
+    border-top: none;
+    border-left: 0.1em solid #004F2C;
+    border-right: 0.1em solid #004F2C;
+    border-bottom: 0.1em solid #004F2C;
+}
+
+.ui-datatable.datatable-style-1 .ui-datatable-odd{
+	background: none repeat scroll 0 0 #e4e5e6;
+	border: none !important;
+}
+
+.ui-datatable.datatable-style-1 .ui-datatable-even {
+	background: none repeat scroll 0 0 #FAFAFA;
+	border: none;
+}
+
+.ui-datatable.datatable-style-1 tbody td{
+	border: none;
+    text-align: center;	
+}
+
+.ui-datatable.datatable-style-1 .ui-paginator.ui-paginator-bottom{
+	margin-top: 1.5em;
+    border-top: 0.1em solid #007d45;
+}
+
+.ui-datatable.datatable-style-1 .ui-paginator, .ui-datatable .ui-paginator{
+	padding: 1px;
+    background: white;
+    border: none;
+    padding-top: 1em;
+}
+.ui-datatable.datatable-style-1 .ui-paginator .ui-paginator-current, .ui-paginator .ui-paginator-rpp-options {
+	margin-left: 1em;
+    margin-right: 1em;
+	color: darkgray;
+	}
+
+.ui-datatable.datatable-style-1 .ui-paginator .ui-paginator-page, .ui-paginator .ui-paginator-next, .ui-paginator .ui-paginator-last, .ui-paginator .ui-paginator-first, .ui-paginator .ui-paginator-prev{
+	border: none;
+	background-attachment: fixed;
+	font-weight: inherit;
+	text-shadow: none;
+}
+
+.ui-datatable.datatable-style-1 .ui-paginator .ui-paginator-page:hover{ 
+	border: #FAFAFA;	
+	color: white;
+	background: #8f5f8b;
+	
+}
+
+.ui-datatable.datatable-style-1 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+	background: #004f2c;
+	color: #FAFAFA;
+	font-weight: inherit;
+	text-shadow: none;
+}
+
+/*ENCABEZADOS*/
+
+.encabezado-verde .ui-state-default{
+	background: #007d45;
+    font-family: tw cen mt;
+    color: white;
+    font-weight: inherit;
+    border-bottom: none;
+    border-left: 0.1px solid white;
+    border-top: none;
+    border-right-style: solid;
+    border-right-color: white;
+    text-shadow: none;
+}
+
+.encabezado-gris .ui-state-default{
+	background: #909295;
+    font-family: tw cen mt;
+    font-weight: inherit;
+    color: white;
+    border-top: none;
+    border-color: white;
+    text-shadow: none;
+}
+
+.
+
+
+
+/*PRUEBAS */
+
+.respuestas{
+	width: 65em;
+}
+
+.titulo-preguntas{
+	width: 64em;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.espacio-preguntas{
+	width: 64em;
+	text-align: center;
+	margin-bottom: 1em;
+	background: white;
+	color: white;
+}
